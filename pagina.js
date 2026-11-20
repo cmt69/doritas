@@ -1,11 +1,11 @@
-const film=document.querySelector('video');
-const toggle=document.querySelector('#play');
-let optedOut=false;
-function start(){film.play().catch(()=>{toggle.textContent='Reproducir video';});}
-toggle.addEventListener('click',()=>{if(film.paused){optedOut=false;start();}else{optedOut=true;film.pause();}});
-film.addEventListener('play',()=>toggle.textContent='Pausar video');
-film.addEventListener('pause',()=>toggle.textContent='Reproducir video');
-new IntersectionObserver(([entry])=>{if(!entry.isIntersecting){film.pause();}else if(!optedOut&&!matchMedia('(prefers-reduced-motion: reduce)').matches){start();}},{threshold:.35}).observe(film);
+const film = document.querySelector('video');
+const toggle = document.querySelector('#play');
+let optedOut = false;
+function start() { film.play().catch(() => { toggle.textContent = 'Reproducir video'; }); }
+toggle.addEventListener('click', () => { if (film.paused) { optedOut = false; start(); } else { optedOut = true; film.pause(); } });
+film.addEventListener('play', () => toggle.textContent = 'Pausar video');
+film.addEventListener('pause', () => toggle.textContent = 'Reproducir video');
+new IntersectionObserver(([entry]) => { if (!entry.isIntersecting) { film.pause(); } else if (!optedOut && !matchMedia('(prefers-reduced-motion: reduce)').matches) { start(); } }, { threshold: .35 }).observe(film);
 const sections = [...document.querySelectorAll('main > section')];
 const footer = document.querySelector('footer');
 function showSection() {
@@ -21,7 +21,7 @@ function showSection() {
 showSection();
 window.addEventListener('hashchange', () => {
   showSection();
-  document.querySelector('main').focus({preventScroll:true});
+  document.querySelector('main').focus({ preventScroll: true });
 });
 const choices = [...document.querySelectorAll('.choice')];
 const features = [...document.querySelectorAll('.feature')];

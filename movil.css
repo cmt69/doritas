@@ -1,0 +1,61 @@
+.nav-symbol { display: none; }
+
+@media (max-width: 650px) {
+  :root { --gutter: clamp(16px, 5vw, 28px); --dock: calc(64px + env(safe-area-inset-bottom)); }
+  body { padding-bottom: var(--dock); }
+  .bar, .hero, .wrap { width: calc(100% - 2 * var(--gutter)); }
+  .bar { height: 56px; padding: 0; flex-wrap: nowrap; }
+  .bar .brand { font-size: 2rem; }
+  .bar .pill.navorder { display: inline-flex; gap: 7px; font-size: .84rem; padding: 5px 13px; min-height: 44px; background: transparent; color: var(--brick); }
+  .navorder .social-icon { filter: none; width: 18px; height: 18px; }
+  .bar nav { position: fixed; z-index: 10; inset: auto 0 0; height: var(--dock); padding: 3px 5px calc(3px + env(safe-area-inset-bottom)); display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; background: #fff3e9; border-top: 1px solid var(--line); }
+  .bar nav a { min-height: 48px; padding: 4px; display: grid; place-content: center; justify-items: center; gap: 3px; font: 600 .76rem/1.2 'Segoe UI', sans-serif; border-radius: 12px; text-decoration: none; }
+  .bar nav a[aria-current] { color: var(--brick); background: var(--cream); }
+  .nav-symbol { display: block; width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .hero { display: flex; flex-direction: column; justify-content: center; align-items: stretch; gap: clamp(15px,2.8svh,28px); padding: 14px 0 20px; }
+  .cover { order: -1; margin: 0; width: 100%; max-height: none; height: clamp(135px,29svh,290px); border-radius: 70px 14px 70px 14px; }
+  .cover img { object-position: center 56%; }
+  .cover figcaption { left: 12px; bottom: 12px; font-size: .75rem; }
+  .hero-copy { padding: 0; }
+  .hero h1 { font-size: clamp(3.45rem, 15vw, 5.2rem); line-height: .94; }
+  .hero .eyebrow { font-size: .7rem; letter-spacing: .08em; margin-bottom: 12px; }
+  .hero .intro { margin: 13px 0 16px; max-width: 40ch; font-size: 1rem; line-height: 1.48; }
+  .hero .pill { width: 100%; }
+  .menu { justify-content: center; padding: 16px 0; }
+  .menu .sectionhead { margin-bottom: 16px; gap: 5px; }
+  .menu .sectionhead h2 { font-size: clamp(2.5rem,11vw,3.7rem); }
+  .menu .sectionhead>p { font-size: .92rem; }
+  .tasting { gap: 12px; }
+  .choices { grid-template-columns: repeat(6,minmax(0,1fr)); gap: 4px; }
+  .choice { min-height: 44px; width: 100%; min-width: 0; padding: 2px; background: transparent; border: 2px solid transparent; border-radius: 11px; }
+  .choice img { display: block; width: 100%; height: 42px; border-radius: 6px; object-fit: cover; }
+  .choice span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .feature { background: #fff4e9; border: 1px solid var(--line); border-radius: 18px; padding: 8px; display: grid; grid-template-columns: minmax(0,1fr); gap: 0; }
+  .feature>img { width: 100%; max-height: min(30svh,285px); height: auto; object-fit: contain; border-radius: 12px; }
+  .feature>div { padding: 14px 8px 6px; gap: 8px; }
+  .feature h3 { font-size: clamp(1.65rem,7vw,2.25rem); }
+  .feature p { line-height: 1.45; }
+  .feature .textlink { justify-self: stretch; justify-content: center; gap: 8px; background: var(--brick); color: var(--cream); border-radius: 10px; text-decoration: none; margin-top: 3px; }
+  .feature .social-icon { filter: invert(1); }
+  .story { padding: 24px 0; gap: 22px; }
+  .story h3 { margin-top: 20px; }
+  .film { aspect-ratio: 4/3; }
+  .contact { align-items: stretch; padding: 30px 0; gap: 28px; }
+  .contact h2 { font-size: clamp(3rem,12vw,4.6rem); }
+  .details { border-top: 1px solid var(--apricot); padding-top: 20px; }
+  .social a { min-height: 44px; }
+}
+@media (max-width:650px) and (max-height:720px) {
+  .hero { padding-block: 10px; gap: 12px; }
+  .hero .intro { margin: 10px 0 12px; }
+  .hero h1 { font-size: clamp(3rem,13.5vw,4.4rem); }
+  .feature>img { max-height: 26svh; }
+  .menu { padding-block: 10px; }
+}
+@media (max-width: 360px) and (max-height: 620px) {
+  .cover { height: 21svh; }
+  .menu .sectionhead { margin-bottom: 7px; }
+  .tasting { gap: 7px; }
+  .feature>img { max-height: 18svh; }
+  .feature>div { padding-top: 8px; gap: 5px; }
+}
